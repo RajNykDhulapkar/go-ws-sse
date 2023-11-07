@@ -1,0 +1,29 @@
+# FILEPATH: /path/to/project/.air.toml
+
+# Watch these file extensions for changes
+exts = ["go", "html", "tmpl"]
+
+# Exclude these directories from watching
+exclude_dir = ["vendor", "node_modules"]
+
+# Exclude these files from watching
+exclude_file = ["*.log", "*.sql"]
+
+# Run these commands before restarting the server
+before_restart = [
+    "sudo lsof -ti :8080 | xargs --no-run-if-empty sudo kill",
+    "go mod tidy",
+    "go fmt ./...",
+    "go vet ./...",
+    "go test ./...",
+]
+
+# Run this command to start the server
+cmd = "go run main.go"
+
+# Delay in seconds before restarting the server
+delay = 1000
+
+# Environment variables to set
+[env]
+PORT = "8080"
