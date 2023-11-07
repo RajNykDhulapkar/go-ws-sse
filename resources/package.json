@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "eventsource": "^2.0.2",
     "websockets": "^0.2.0"
   },
   "scripts": {
